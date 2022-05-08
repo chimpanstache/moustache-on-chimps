@@ -27,7 +27,7 @@ class Response
       body = File.read('./app/views/default.html.erb')
       Rack::Response.new(body, 200, {"Content-Type" => "text/plain"})
     else
-      Rack::Response.new("File not existing", 200, {"Content-Type" => "text/plain"})
+      Rack::Response.new( File.read('./app/views/errors/404.html.erb'), 400, {"Content-Type" => "text/plain"})
     end
   end
 end
